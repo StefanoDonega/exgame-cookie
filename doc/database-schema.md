@@ -9,7 +9,6 @@
     "_id": ObjectId("1"),
     "first_name": "Name",
     "last_name": "Surname",
-    "username": "NameSurname",
     "email": "example@gmail.com",
     "password": "HashedPassword",
     "image"?: 1010101010110,
@@ -26,7 +25,6 @@
     "_id": ObjectId("2"),
     "first_name": "Name",
     "last_name": "Surname",
-    "username": "NameSurname",
     "email": "example@gmail.com",
     "password": "HashedPassword",
     "image"?: 1010101010110,
@@ -45,14 +43,13 @@
     "_id": ObjectId("3"),
     "first_name": "Name",
     "last_name": "Surname",
-    "username": "NameSurname",
     "email": "example@gmail.com",
     "password": "HashedPassword",
     "image"?: 1010101010110,
     "created_at": ISODate("2024-01-01T14:30:00Z"),
     "updated_at"?: ISODate("2024-01-01T14:30:00Z"),
     "role": "student",
-    "class"?: "Cookie"
+    "student_class"?: "Cookie"
 }
 ```
 
@@ -92,6 +89,19 @@
 ];
 ```
 
+## Sessions
+```ts
+[
+  {
+    _id: ObjectId(""),
+    exam_id: ObjectId(""),
+    student_class: "",
+    start_date: ISODate("2024-01-20T10:00:00Z"),
+    start_time: ISODate("2024-01-20T10:00:00Z")
+  }
+]
+```
+
 ## Subscriptions
 
 ```ts
@@ -99,9 +109,7 @@
   {
     _id: ObjectId(""),
     student_id: ObjectId(""),
-    exam_id: ObjectId(""),
-    start_time: ISODate("2024-01-20T10:00:00Z"),
-    end_time: ISODate("2024-01-20T10:00:00Z"),
+    session_id: ObjectId(""),
     questions: [
       {
         question_id: ObjectId("..."),

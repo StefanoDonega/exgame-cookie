@@ -1,42 +1,67 @@
 export type User = {
+  /**
+   * Id generata dal database
+   */
   _id: string;
-  firstName: string;
-  lastName: string;
-  username: string;
+
+  /**
+   * Nome
+   */
+  first_name: string;
+
+  /**
+   * Cognome
+   */
+  last_name: string;
+
+  /**
+   * Email, utilizzata per l'autenticazione
+   */
+  email: string;
+
+  /**
+   * Password, usata per l'autenticazione
+   * La password è criptata
+   */
   password: string;
 
   /**
-   * Email utilizzata per l'autenticazione
+   * Data di registrazione
    */
-  email:string;
   created_at: string;
-  updated_at:string;
 
   /**
-   * può assumere i valori:
+   * Ultima modifica
+   */
+  updated_at: string;
+
+  /**
+   * Può assumere i valori:
    * - admin
-   * - student
    * - teacher
+   * - student
    */
   role: Role;
-  courses?: string[];
+
+  /**
+   * Immagine, facoltativa
+   */
   image?: string;
 
   /**
-   * rappresenta i corsi assegnati ad un docente. Questa proprietà non è valorizzata per i "role: teacher"
+   * Rappresenta i corsi assegnati a un docente. Questa proprietà è valorizzata solo per i "role" teacher
    */
-  subject?:string[];
+  subjects?: string[];
 
   /**
-   * rappresenta le classi assegnate ad un teacher. Vcd alorizzata solo per i "role: teacher"
+   * Rappresenta le classi assegnate a un docente. E' velorizzata solo per i "role" teacher
    */
   classes?: string[];
 
   /**
-   * sono le classi a cui uno studente appartiene. è valorizzato solo per i "role: student"
+   * Rappresenta la classe a cui uno studente appartiene. E' valorizzato solo per i "role" student
    */
-  student_classe?: string;
+  student_class?: string;
 };
-
 
 export type Role = "admin" | "teacher" | "student";
